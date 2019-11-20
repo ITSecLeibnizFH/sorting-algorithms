@@ -11,16 +11,16 @@ int generic_load(char *buf, const char *filename) {
 
     if (f)
     {
-      fseek (f, 0, SEEK_END);
-      length = ftell (f);
-      fseek (f, 0, SEEK_SET);
-      buffer = (char *) malloc (length + 1);
-      buffer[length] = '\0';
-      if (buffer)
-      {
-        fread (buffer, 1, length, f);
-      }
-      fclose (f);
+    	fseek (f, 0, SEEK_END);
+    	length = ftell (f);
+    	fseek (f, 0, SEEK_SET);
+    	buffer = (char *) malloc (length + 1);
+    	buffer[length] = '\0';
+    	if (buffer)
+    	{
+    		fread (buffer, 1, length, f);
+    	}
+    	fclose (f);
     }
 }
 
