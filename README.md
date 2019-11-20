@@ -10,3 +10,4 @@ This repository is a little C programming exercise with the goal to implement co
 ### TODO
 - Implement ALL the sorting algorithms
 - Generate test datasets
+- Template standard reporting format for testing on machines with differing hardware
