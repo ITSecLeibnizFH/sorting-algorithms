@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-O2
+CFLAGS=--std=c99 -O2
 RUNC=$(CC) $(CFLAGS)
 
 all: main
