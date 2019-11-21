@@ -1,19 +1,39 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
 #include "util/timer.h"
+#include "algorithms/reference/reference.h"
 
 int main() {
-    printf("Testing timer.\n");
+    
+    printf("Leibniz-FH IT-Security 2019\n");
+    printf("Sorting algorithms - speed comparison\n");
+    
+    // printf("Testing timer.\n");
+    // for (unsigned int delay = 0; delay <= 5; delay++)
+    // {
+    //     double start_time = get_time();
+    //     printf("Sleeping for '%d' second(s).." , delay);
+    //     sleep(delay);
+    //     double stop_time = get_time();
+    //     printf("delta: %lf\n", stop_time - start_time);
+    // }
 
-    for (unsigned int delay = 0; delay <= 5; delay++)
+    int *data = (int*) malloc(sizeof(int) * 6);
+    data[0] = 4;
+    data[1] = 3;
+    data[2] = 2;
+    data[3] = 1;
+    data[4] = 6;
+    data[5] = 5;
+    sort(6, data);
+
+    for (int i = 0; i < 6; i++)
     {
-        double start_time = get_time();
-        printf("Sleeping for '%d' second(s).." , delay);
-        sleep(delay);
-        double stop_time = get_time();
-        printf("delta: %lf\n", stop_time - start_time);
+        printf("%d\n", data[i]);
     }
+    
 
     return 0;
 }

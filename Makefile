@@ -13,5 +13,9 @@ timer.o: src/util/timer.h src/util/timer.c
 load_testdata.o: src/util/load_testdata.h src/util/load_testdata.c
 	$(RUNC) -c src/util/load_testdata.c -o bin/load_testdata.o
 
+# Algorithms
+reference.o: src/algorithms/reference/reference.h src/algorithms/reference/reference.c
+	$(RUNC) -c src/algorithms/reference/reference.c -o bin/reference.o
+
 clean:
 	rm bin/main bin/*.o
