@@ -1,14 +1,16 @@
 CC=gcc
-CFLAGS=--std=c99 -O2
+CFLAGS=--std=c99 -O2 -Wextra
 RUNC=$(CC) $(CFLAGS)
 
-all: main
-default: main
-main: src/main.c util.o
-	$(RUNC) -o bin/main src/main.c
+SOURCES=$(wildcard src/**/*.c)
+OBJECTS=$(wildcard bin/**/*.o)
+EXECUTABLE=bench
 
-util.o: src/util/*.c src/util/*.h
-	$(RUNC) -c src/util/timer.c -o bin/util.o
+bench: src/main.c $(OBJECTS)
+	$(RUNC) -o bin/$(EXECUTABLE) src/main.c
+
+$(OBJECTS): $(SOURCES)
+	$(RUNC) -c $< -o $@
 
 clean:
-	rm bin/main bin/*.o
+	rm bin/$(EXECUTABLE) bin/*.o

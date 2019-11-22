@@ -20,7 +20,8 @@ double get_time()
 double get_time()
 {
     struct timeval t;
-    struct timezone tzp;
+    struct timezone *tzp;
+    // We don't care about *tzp because we only need the delta between two subsequent calls to this function.
     gettimeofday(&t, &tzp);
     return t.tv_sec + t.tv_usec*1e-6;
 }
