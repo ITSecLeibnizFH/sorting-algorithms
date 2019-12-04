@@ -11,13 +11,13 @@ void write_log(const char *msg) {
     #endif
 }
 
-void swap(int *data, unsigned int index1, unsigned int index2) {
+void swap(int *data, const unsigned int index1, const unsigned int index2) {
     int tmp = data[index1];
     data[index1] = data[index2];
     data[index2] = tmp;
 }
 
-int sort(const unsigned int length, int *data) {
+int refimpl_aako_shakersort_int(const unsigned int length, int *data) {
     int swapped;
     do
     {

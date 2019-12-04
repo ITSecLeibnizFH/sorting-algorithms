@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 #include "util/timer.h"
-#include "algorithms/reference/reference.h"
+#include "algorithms.h"
 
 int main() {
     
@@ -11,7 +11,7 @@ int main() {
     printf("Sorting algorithms - speed comparison\n");
     printf("\n");
 
-    printf("Testing timer..\n");
+    printf("Showcasing timer accuracy..\n");
     for (unsigned int delay = 0; delay <= 3; delay++)
     {
         double start_time = get_time();
@@ -28,7 +28,7 @@ int main() {
     data[3] = 1;
     data[4] = 6;
     data[5] = 5;
-    sort(6, data);
+    refimpl_aako_shakersort_int(6, data);
     for (int i = 0; i < 6; i++) {
         printf("%d\n", data[i]);
     }    

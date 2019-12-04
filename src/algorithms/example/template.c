@@ -11,6 +11,6 @@
 // Dataset Length
 #define LIMIT 0 
 
-int sort(const unsigned int length, int *data) {
+int <author>_<algorithm_name>_<target_type>(const unsigned int length, int *data) {
     // Your algorithm goes here
 }

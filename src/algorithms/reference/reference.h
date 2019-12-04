@@ -1,3 +1,3 @@
 #include "reference.c"
 
-int sort(const unsigned int length, int *data);
+int refimpl_aako_shakersort_int(const unsigned int length, int *data);
