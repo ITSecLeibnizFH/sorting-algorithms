@@ -15,7 +15,7 @@
  *     char arr[10] = {0};
  */
 
-void readDataset(signed int *array, int LIMIT) {
+int readDataset(signed int *array, int LIMIT) {
     char fname[32];
     snprintf(fname, sizeof fname, "%s%d%s", "random_", LIMIT, ".txt");
 
@@ -24,10 +24,12 @@ void readDataset(signed int *array, int LIMIT) {
 
     if (fp == NULL) {
         printf("Error reading file...\n");
-        exit(EXIT_FAILURE);
+        return EXIT_FAILURE;
     }
 
     for (int i = 0; i < LIMIT; i++) {
         fscanf(fp, "%d", &array[i]);
     }
+
+    return EXIT_SUCCESS;
 }

@@ -6,16 +6,11 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <leibnizlib.h>
+#include "../../util/leibnizlib.h"
 
 // Dataset Length
 #define LIMIT 0 
 
-int main() {
-    signed int array[LIMIT] = {0};
-    readDataset(array, LIMIT);
-
-    // Algorithm starts here
-
-    // Algorithm ends here
+int sort(const unsigned int length, int *data) {
+    // Your algorithm goes here
 }
