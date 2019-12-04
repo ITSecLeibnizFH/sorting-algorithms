@@ -9,8 +9,11 @@ EXECUTABLE=bench
 bench: src/main.c $(OBJECTS)
 	$(RUNC) -o bin/$(EXECUTABLE) src/main.c
 
+run: bin/bench
+	./bin/bench
+
 $(OBJECTS): $(SOURCES)
 	$(RUNC) -c $< -o $@
 
 clean:
-	rm bin/$(EXECUTABLE) bin/*.o
+	rm -f bin/$(EXECUTABLE) bin/*.o
