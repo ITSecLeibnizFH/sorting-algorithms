@@ -2,7 +2,14 @@ CC=gcc
 CFLAGS=--std=c99 -O2 -Wextra
 RUNC=$(CC) $(CFLAGS)
 
-SOURCES=$(wildcard src/**/*.c)
+ALL_SOURCES=$(wildcard src/**/*.c)
+
+# I thought we'd need this to not compile the template files, but it seems to work fine without.
+# If in doubt, uncomment the next two lines.
+#EXCLUDES=$(shell cat ./.makeexclude)
+#SOURCES=$(filter-out $(EXCLUDES),$(ALL_SOURCES))
+
+SOURCES=$(ALL_SOURCES)
 OBJECTS=$(wildcard bin/**/*.o)
 EXECUTABLE=bench
 
