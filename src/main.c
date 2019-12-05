@@ -4,6 +4,16 @@
 
 #include "util/timer.h"
 #include "algorithms.h"
+#include "util/leibnizlib.h"
+
+void print_state(const unsigned int length, const int *data) {
+    if(is_sorted(length, data)) {
+        printf("Data array is in order.\n");
+    }
+    else {
+        printf("Data array is NOT in order.\n");
+    }
+}
 
 int main() {
     
@@ -21,14 +31,18 @@ int main() {
         printf("delta: %lf\n", stop_time - start_time);
     }
 
-    int *data = (int*) malloc(sizeof(int) * 6);
+    const int length = 6;
+    int* data = (int*) malloc(sizeof(int) * length);
     data[0] = 4;
     data[1] = 3;
     data[2] = 2;
     data[3] = 1;
     data[4] = 6;
     data[5] = 5;
-    refimpl_aako_shakersort_int(6, data);
+    print_state(length, data);
+    refimpl_aako_shakersort_int(length, data);
+    print_state(length, data);
+
     for (int i = 0; i < 6; i++) {
         printf("%d\n", data[i]);
     }    
