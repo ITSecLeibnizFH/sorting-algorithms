@@ -12,4 +12,3 @@ This repository is a little C programming exercise with the goal to implement co
 - Template standard reporting format for testing on machines with differing hardware
 - Write contribution guide
 - Find out how to make the code generic to sort other things than integers?
-- Include pregenerated datasets and actually run a comparison

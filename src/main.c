@@ -17,7 +17,7 @@ void print_state(const unsigned int length, const int* data) {
 
 void print_duration(double start, double stop) {
     double diff = stop - start;
-    printf("Execution took %.3lf seconds.\n", diff);
+    printf("Execution took %.4lf seconds.\n", diff);
 }
 
 int run_algorithm(const struct sorting_algorithm alg, const unsigned int length, int* data) {
@@ -38,9 +38,9 @@ int run_algorithm(const struct sorting_algorithm alg, const unsigned int length,
     double stop_time = get_time();
 
     print_state(length, data_lcopy);
-    for (int i = 0; i < 6; i++) {
-        printf("%d\n", data_lcopy[i]);
-    }
+    // for (int i = 0; i < length; i++) {
+    //     printf("%d\n", data_lcopy[i]);
+    // }
     print_duration(start_time, stop_time);
     free(data_lcopy);
     return 1;
@@ -61,21 +61,17 @@ int main() {
         printf("delta: %lf\n", stop_time - start_time);
     }
 
-    const int length = 6;
+    const int length = 10000;
     int* data = (int*) malloc(sizeof(int) * length);
     if(data == NULL) {
         printf("Unable to allocate memory!\n");
         return EXIT_FAILURE;
     }
-    data[0] = 4;
-    data[1] = 3;
-    data[2] = 2;
-    data[3] = 1;
-    data[4] = 6;
-    data[5] = 5;
+    
+    // TODO: Check return value
+    readDataset(data, length);
 
     run_algorithm(REFERENCE, length, data);
-
     free(data);
 
     return EXIT_SUCCESS;

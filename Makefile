@@ -15,6 +15,7 @@ EXECUTABLE=bench
 
 bench: src/main.c $(OBJECTS)
 	$(RUNC) -o bin/$(EXECUTABLE) src/main.c
+	cp testdata/*.txt bin/
 
 run: bin/bench
 	./bin/bench
