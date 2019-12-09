@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 #include "util/timer.h"
-#include "algorithms.h"
+#include "algorithms/reference/reference.h"
 #include "util/leibnizlib.h"
 
 void print_state(const unsigned int length, const int* data) {
@@ -20,7 +20,11 @@ void print_duration(double start, double stop) {
     printf("Execution took %.3lf seconds.\n", diff);
 }
 
-int run_algorithm(algFuncPtr alg, const unsigned int length, int* data) {
+int run_algorithm(const struct sorting_algorithm alg, const unsigned int length, int* data) {
+    printf("Running algorithm: %s\n", alg.a_name);
+    printf(alg.a_desc);
+    printf("\n");
+
     int bytes = sizeof(int) * length;
     int* data_lcopy = (int*) malloc(bytes);
     if(data_lcopy == NULL) {
@@ -30,7 +34,7 @@ int run_algorithm(algFuncPtr alg, const unsigned int length, int* data) {
     memcpy(data_lcopy, data, bytes);
 
     double start_time = get_time();
-    (*alg)(length, data_lcopy);
+    (alg.sort_func)(length, data_lcopy);
     double stop_time = get_time();
 
     print_state(length, data_lcopy);
@@ -70,7 +74,7 @@ int main() {
     data[4] = 6;
     data[5] = 5;
 
-    run_algorithm(&refimpl_aako_shakersort_int, length, data);
+    run_algorithm(REFERENCE, length, data);
 
     free(data);
 
