@@ -35,7 +35,7 @@ int readDataset(signed int *array, int LIMIT) {
 }
 
 int is_sorted(const unsigned int length, const int *data) {
-    for (int i = 1; i < length; i++) {
+    for (unsigned int i = 1; i < length; i++) {
         if(data[i-1] > data[i]) {
             return 0;
         }
