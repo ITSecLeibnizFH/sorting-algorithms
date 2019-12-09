@@ -23,6 +23,10 @@ void print_duration(double start, double stop) {
 int run_algorithm(algFuncPtr alg, const unsigned int length, int* data) {
     int bytes = sizeof(int) * length;
     int* data_lcopy = (int*) malloc(bytes);
+    if(data_lcopy == NULL) {
+        printf("Unable to allocate memory!\n");
+        return 0;
+    }
     memcpy(data_lcopy, data, bytes);
 
     double start_time = get_time();
@@ -35,6 +39,7 @@ int run_algorithm(algFuncPtr alg, const unsigned int length, int* data) {
     }
     print_duration(start_time, stop_time);
     free(data_lcopy);
+    return 1;
 }
 
 int main() {    
@@ -54,6 +59,10 @@ int main() {
 
     const int length = 6;
     int* data = (int*) malloc(sizeof(int) * length);
+    if(data == NULL) {
+        printf("Unable to allocate memory!\n");
+        return EXIT_FAILURE;
+    }
     data[0] = 4;
     data[1] = 3;
     data[2] = 2;
