@@ -6,7 +6,7 @@
 #include "algorithms.h"
 #include "util/leibnizlib.h"
 
-void print_state(const unsigned int length, const int *data) {
+void print_state(const unsigned int length, const int* data) {
     if(is_sorted(length, data)) {
         printf("Data array is in order.\n");
     }
@@ -15,8 +15,29 @@ void print_state(const unsigned int length, const int *data) {
     }
 }
 
-int main() {
-    
+void print_duration(double start, double stop) {
+    double diff = stop - start;
+    printf("Execution took %.3lf seconds.\n", diff);
+}
+
+int run_algorithm(algFuncPtr alg, const unsigned int length, int* data) {
+    int bytes = sizeof(int) * length;
+    int* data_lcopy = (int*) malloc(bytes);
+    memcpy(data_lcopy, data, bytes);
+
+    double start_time = get_time();
+    (*alg)(length, data_lcopy);
+    double stop_time = get_time();
+
+    print_state(length, data_lcopy);
+    for (int i = 0; i < 6; i++) {
+        printf("%d\n", data_lcopy[i]);
+    }
+    print_duration(start_time, stop_time);
+    free(data_lcopy);
+}
+
+int main() {    
     printf("Leibniz-FH IT-Security 2019\n");
     printf("Sorting algorithms - speed comparison\n");
     printf("\n");
@@ -39,13 +60,10 @@ int main() {
     data[3] = 1;
     data[4] = 6;
     data[5] = 5;
-    print_state(length, data);
-    refimpl_aako_shakersort_int(length, data);
-    print_state(length, data);
 
-    for (int i = 0; i < 6; i++) {
-        printf("%d\n", data[i]);
-    }    
+    run_algorithm(&refimpl_aako_shakersort_int, length, data);
 
-    return 0;
+    free(data);
+
+    return EXIT_SUCCESS;
 }
