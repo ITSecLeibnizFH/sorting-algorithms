@@ -25,9 +25,9 @@ Hey, you want to write your own sorting algorithm and have it benchmarked? Nice!
 Unless you're working in a fork, please create a seperate branch for your implementation that has a distinctive name.
 
 ### Implement!
-As a starting point, take a look at the reference implementation in [`src/algorithms/reference`](https://github.com/ITSecLeibnizFH/sorting-algorithms/tree/master/src/algorithms/reference) and the template files in [`src/algorithms/example`](https://github.com/ITSecLeibnizFH/sorting-algorithms/tree/master/src/algorithms/example). Implement your sorting algorithm using the template files and put it in a new folder in `src/algorithms`. After that you only need to define a `sorting_algorithm` struct that contains a pointer to your sorting function, your name and the name of your algorithm. The latter can be some well-known algorithm like `Shakersort` or something you came up with if you decided to invent a new algorithm. Add this to the list of algorithms [here](https://github.com/ITSecLeibnizFH/sorting-algorithms/tree/master/src/algorithms/algos.h#L8) and you're done!
+As a starting point, take a look at the reference implementation in [`src/algorithms/reference`](https://github.com/ITSecLeibnizFH/sorting-algorithms/tree/master/src/algorithms/reference) and the template files in [`src/algorithms/example`](https://github.com/ITSecLeibnizFH/sorting-algorithms/tree/master/src/algorithms/example). Implement your sorting algorithm using the template files and put it in a new folder in `src/algorithms`. After that you only need to define a `sorting_algorithm` struct that contains a pointer to your sorting function, your name and the name of your algorithm. The latter can be some well-known algorithm like `Shakersort` or something you came up with if you decided to invent a new algorithm. Add this to the list of algorithms [here](https://github.com/ITSecLeibnizFH/sorting-algorithms/tree/master/src/algos.h#L8) and you're done!
 
-Please note that at the moment this project only supports implementations that sort integers from small to large, but we will extend this to other data types in the future. 
+Please note that at the moment this project only supports implementations that sort **integers from small to large**, but we will extend this to other data types in the future.
 
 ## TODO
 - Implement ALL the sorting algorithms
