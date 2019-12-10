@@ -17,7 +17,7 @@
 
 int readDataset(signed int *array, int LIMIT) {
     char fname[32];
-    snprintf(fname, sizeof fname, "%s%d%s", "random_", LIMIT, ".txt");
+    snprintf(fname, sizeof fname, "%s%d%s", "bin/random_", LIMIT, ".txt");
 
     FILE *fp;
     fp = fopen(fname, "r");
@@ -32,4 +32,13 @@ int readDataset(signed int *array, int LIMIT) {
     }
 
     return EXIT_SUCCESS;
+}
+
+int is_sorted(const unsigned int length, const int *data) {
+    for (unsigned int i = 1; i < length; i++) {
+        if(data[i-1] > data[i]) {
+            return 0;
+        }
+    }
+    return 1;
 }
