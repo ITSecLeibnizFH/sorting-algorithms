@@ -3,8 +3,8 @@
 #include <unistd.h>
 
 #include "util/timer.h"
-#include "algorithms/reference/reference.h"
 #include "util/leibnizlib.h"
+#include "algos.h"
 
 void print_duration(double start, double stop) {
     double diff = stop - start;
@@ -37,6 +37,14 @@ int run_algorithm(const struct sorting_algorithm alg, const unsigned int length,
     return EXIT_SUCCESS;
 }
 
+int run_all(const unsigned int length, int* data) {
+    sorting_algorithm* ptr = get_all();
+    while(ptr->sort_func != NULL) {
+        run_algorithm(*ptr, length, data);
+        ptr++;
+    }
+}
+
 int main() {    
     printf("Leibniz-FH IT-Security 2019\n");
     printf("Sorting algorithms - speed comparison\n");
@@ -66,7 +74,7 @@ int main() {
             exit(EXIT_FAILURE);
         }
 
-        run_algorithm(REFERENCE, *arrPtr, data);
+        run_all(*arrPtr, data);
         free(data);
 
         arrPtr++;
