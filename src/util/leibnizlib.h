@@ -17,7 +17,7 @@
 
 int readDataset(signed int *array, int LIMIT) {
     char fname[32];
-    snprintf(fname, sizeof fname, "%s%d%s", "random_", LIMIT, ".txt");
+    snprintf(fname, sizeof fname, "%s%d%s", "bin/random_", LIMIT, ".txt");
 
     FILE *fp;
     fp = fopen(fname, "r");

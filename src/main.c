@@ -51,25 +51,19 @@ int main() {
     printf("Sorting algorithms - speed comparison\n");
     printf("\n");
 
-    printf("Showcasing timer accuracy..\n");
-    for (unsigned int delay = 0; delay <= 3; delay++)
-    {
-        double start_time = get_time();
-        printf("Sleeping for '%d' second(s).. " , delay);
-        sleep(delay);
-        double stop_time = get_time();
-        printf("delta: %lf\n", stop_time - start_time);
-    }
-
     const int length = 10000;
+    printf("Benchmarking with a test dataset of size: %d\n", length);
+
     int* data = (int*) malloc(sizeof(int) * length);
     if(data == NULL) {
         printf("Unable to allocate memory!\n");
         return EXIT_FAILURE;
     }
     
-    // TODO: Check return value
-    readDataset(data, length);
+    if(readDataset(data, length) != EXIT_SUCCESS) {
+        printf("No dataset specified, terminating..\n");
+        exit(EXIT_FAILURE);
+    }
 
     run_algorithm(REFERENCE, length, data);
     free(data);

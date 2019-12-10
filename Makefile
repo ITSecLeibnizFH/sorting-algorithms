@@ -25,3 +25,4 @@ $(OBJECTS): $(SOURCES)
 
 clean:
 	rm -f bin/$(EXECUTABLE) bin/*.o
+	rm -f bin/*.txt

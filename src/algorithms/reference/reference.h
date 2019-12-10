@@ -3,7 +3,7 @@
 
 const struct sorting_algorithm REFERENCE = {
     &refimpl_aako_shakersort_int,
-    "Shakersort",
+    "Shakersort (reference)",
     "Default Cocktail-/Shakersort reference implementation by Aaron Korte."
 };
 
