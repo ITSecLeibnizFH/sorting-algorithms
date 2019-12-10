@@ -12,7 +12,7 @@ void print_duration(double start, double stop) {
 }
 
 int run_algorithm(const struct sorting_algorithm alg, const unsigned int length, int* data) {
-    printf("Running algorithm: %s\n", alg.a_name);
+    printf("Running algorithm: %s by %s\n", alg.a_name, alg.a_author);
 
     int bytes = sizeof(int) * length;
     int* data_lcopy = (int*) malloc(bytes);
@@ -60,8 +60,8 @@ int main() {
     unsigned int* arrPtr = sizes;
     while(*arrPtr)
     {
-        printf("------------------------------------------\n");
-        printf("Benchmarking with a test dataset of size: %d\n\n", *arrPtr);
+        printf("----------------------------------------------------\n");
+        printf("Benchmarking with a randomized test dataset of size: %d\n\n", *arrPtr);
 
         int* data = (int*) malloc(sizeof(int) * *arrPtr);
         if(data == NULL) {
