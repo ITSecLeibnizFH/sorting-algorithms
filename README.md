@@ -33,4 +33,7 @@ Please note that at the moment this project only supports implementations that s
 - Implement ALL the sorting algorithms
 - Template standard reporting format for testing on machines with differing hardware
 - Find out how to make the code generic to sort other things than integers?
-- Improve contribution guide
+- Improve contribution guide ?
+- Testdata
+  - Add command line flags to only load specific testdata
+  - Preload all testdata on startup
