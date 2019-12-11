@@ -1,20 +1,16 @@
-#include <stdio.h>
-
 // Cocktail/Shaker-sort reference implementation
 // Aaron Korte <github@aaronkorte.xyz>
 // 20.11.2019 16:00
+
+#include <stdio.h>
+
+#include "../../util/arrayops.h"
 
 // TODO: Implement verbose logging.
 void write_log(const char *msg) {
     #ifdef VERBOSE
     printf(msg);
     #endif
-}
-
-void swap(int *data, const unsigned int index1, const unsigned int index2) {
-    int tmp = data[index1];
-    data[index1] = data[index2];
-    data[index2] = tmp;
 }
 
 int refimpl_aako_shakersort_int(const unsigned int length, int *data) {

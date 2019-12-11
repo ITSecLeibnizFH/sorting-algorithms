@@ -1,3 +1,6 @@
+#ifndef ALGORITHM_H
+#define ALGORITHM_H
+
 typedef int (*algFuncPtr)(const unsigned int length, int* data);
 typedef struct sorting_algorithm {
     algFuncPtr sort_func;
@@ -6,3 +9,5 @@ typedef struct sorting_algorithm {
     char a_desc[512]; // Additional information about the algorithm
     char a_author[64]; // Algorithm author's name
 } sorting_algorithm;
+
+#endif

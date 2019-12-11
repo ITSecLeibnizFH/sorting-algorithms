@@ -1,7 +1,7 @@
-#include "reference.c"
 #include "../algorithm.h"
+#include "reference.c"
 
-const struct sorting_algorithm REFERENCE = {
+const sorting_algorithm REFERENCE = {
     &refimpl_aako_shakersort_int,
     "Shakersort (reference)",
     "Cocktail-/Shakersort default reference implementation.",
