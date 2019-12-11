@@ -1,3 +1,4 @@
+#include "../algorithm.h"
 #include "bubblesort.c"
 
 const sorting_algorithm AAKO_BUBBLESORT = {

@@ -11,8 +11,8 @@ void print_duration(double start, double stop) {
     printf("Execution took %.4lf seconds.\n", diff);
 }
 
-int run_algorithm(const struct sorting_algorithm alg, const unsigned int length, int* data) {
-    printf("Running algorithm: %s by %s\n", alg.a_name, alg.a_author);
+int run_algorithm(const struct sorting_algorithm* alg, const unsigned int length, int* data) {
+    printf("Running algorithm: %s by %s\n", alg->a_name, alg->a_author);
 
     int bytes = sizeof(int) * length;
     int* data_lcopy = (int*) malloc(bytes);
@@ -23,11 +23,11 @@ int run_algorithm(const struct sorting_algorithm alg, const unsigned int length,
     memcpy(data_lcopy, data, bytes);
 
     double start_time = get_time();
-    (alg.sort_func)(length, data_lcopy);
+    (alg->sort_func)(length, data_lcopy);
     double stop_time = get_time();
 
     if(!is_sorted(length, data_lcopy)) {
-        printf("Data array is NOT in order!\n");
+        printf("Data array has not been sorted!\n");
         return EXIT_FAILURE;
     }
     print_duration(start_time, stop_time);
@@ -40,7 +40,7 @@ int run_algorithm(const struct sorting_algorithm alg, const unsigned int length,
 int run_all(const unsigned int length, int* data) {
     sorting_algorithm* ptr = get_all();
     while(ptr->sort_func != NULL) {
-        run_algorithm(*ptr, length, data);
+        run_algorithm(ptr, length, data);
         ptr++;
     }
 }

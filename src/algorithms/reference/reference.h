@@ -1,3 +1,4 @@
+#include "../algorithm.h"
 #include "reference.c"
 
 const sorting_algorithm REFERENCE = {

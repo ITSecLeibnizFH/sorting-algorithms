@@ -1,6 +1,6 @@
 #include "algorithms/reference/reference.h"
 #include "algorithms/aako-bubblesort/bubblesort.h"
-#include "algorithm.h"
+#include "algorithms/algorithm.h"
 
 sorting_algorithm* get_all() {
     static sorting_algorithm ptr[] = {
