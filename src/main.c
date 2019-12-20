@@ -39,7 +39,7 @@ int run_algorithm(const struct sorting_algorithm* alg, const unsigned int length
 
 int run_all(const unsigned int length, int* data) {
     sorting_algorithm* ptr = get_all();
-    while(ptr->sort_func != NULL) {
+    while(ptr->sort_func) {
         run_algorithm(ptr, length, data);
         ptr++;
     }
@@ -57,7 +57,7 @@ int main() {
         0 // How do I terminate this correctly?
     };
 
-    unsigned int* arrPtr = sizes;
+    const unsigned int* arrPtr = sizes;
     while(*arrPtr)
     {
         printf("----------------------------------------------------\n");
@@ -70,7 +70,7 @@ int main() {
         }
 
         if(readDataset(data, *arrPtr) != EXIT_SUCCESS) {
-            printf("No dataset specified, terminating..\n");
+            printf("Cannot read dataset, terminating..\n");
             exit(EXIT_FAILURE);
         }
 
