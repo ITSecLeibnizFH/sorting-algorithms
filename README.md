@@ -30,7 +30,10 @@ As a starting point, take a look at the reference implementation in [`src/algori
 Please note that at the moment this project only supports implementations that sort **integers from small to large**, but we will extend this to other data types in the future.
 
 ## TODO
-- Implement ALL the sorting algorithms
-- Template standard reporting format for testing on machines with differing hardware
-- Find out how to make the code generic to sort other things than integers?
-- Improve contribution guide
+- [ ] Implement ALL the sorting algorithms
+- [ ] Template standard reporting format for testing on machines with differing hardware
+- [ ] Find out how to make the code generic to sort other things than integers?
+- [x] Improve contribution guide
+- [ ] Testdata
+  - [ ] Add command line flags to only load specific testdata
+  - [ ] Preload all testdata on startup

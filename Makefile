@@ -1,6 +1,8 @@
 CC=gcc
 CFLAGS=--std=c99 -O2
+DEBUGFLAGS=--std=c99 -g
 RUNC=$(CC) $(CFLAGS)
+RUNDEBUG=$(CC) $(DEBUGFLAGS)
 
 ALL_SOURCES=$(wildcard src/**/*.c)
 
@@ -13,7 +15,11 @@ SOURCES=$(ALL_SOURCES)
 OBJECTS=$(wildcard bin/**/*.o)
 EXECUTABLE=bench
 
-bench: src/main.c $(OBJECTS)
+debug: src/main.c $(OBJECTS)
+	$(RUNDEBUG) -o bin/$(EXECUTABLE) src/main.c
+	cp testdata/*.txt bin/
+
+release: src/main.c $(OBJECTS)
 	$(RUNC) -o bin/$(EXECUTABLE) src/main.c
 	cp testdata/*.txt bin/
 
